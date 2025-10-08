@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CADASTRE-SE</title>
+  <link rel="stylesheet" href="/css/cadastrar.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+  
+  </header>
+  <main>
+    <div id="container">
+        <form id="formCadastro">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" placeholder="Nome" required>
+        
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Email" required>
+        
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha_hash" placeholder="Ex: 1234" required> 
+
+          <button onclick="cadastrar()" type="button">Cadastrar</button>
+          <a href="login.html" >Já tehno conta</a>
+          <p style="text-align: center;" id="msg"></p>
+
+        
+         
+        </form>
+
+      </div>
+  </main>
+  
+  <script src="/js/script.js"></script>
+</body>
+</html>

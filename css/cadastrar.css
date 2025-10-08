@@ -1,0 +1,152 @@
+/* Reset geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
+
+/* Main ocupa tela toda */
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3e006a;
+  padding: 20px;
+}
+
+/* Container do form */
+#container {
+  background-color: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  padding: 40px 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Formulário */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Labels */
+label {
+  font-weight: bold;
+  font-size: 0.95rem;
+  color: #3e006a;
+  margin-left: 5px;
+}
+
+/* Inputs e selects */
+input,
+select {
+  border-radius: 50px;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #d9d9d9;
+  box-shadow: inset 2px 3px 5px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+  width: 100%;
+}
+
+/* Foco */
+input:focus,
+select:focus {
+  outline: none;
+  background: #ececec;
+  box-shadow: 0 0 6px #522a80;
+}
+
+/* Botão */
+
+
+/* Título da lista */
+h2 {
+  margin-top: 30px;
+  color: #3e006a;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Lista de usuários */
+#listaUsuarios {
+  margin-top: 15px;
+  list-style: none;
+  width: 100%;
+  padding: 0;
+}
+
+#listaUsuarios li {
+  background: #f5f5f5;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 500;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+a{
+  text-align: center; 
+  opacity: 50%; 
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+a:hover{
+  opacity: 100%; 
+  transition: 0.3s ease-in-out;
+}
+
+/* animação */
+@keyframes aumentarBotao {
+  0% {
+    transform: scale(1);
+ 
+
+  }
+  50% {
+    transform: scale(1.1);
+
+
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* aplica na div */
+button {
+    margin-top: 20px;
+    border: none;
+    border-radius: 50px;
+    padding: 12px;
+    background: #522a80;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  button:hover {
+    background: #3e006a;
+     animation: aumentarBotao 2s infinite linear; /* aumentarBotao --> nome do KEYFRAME */
+  }
+  /* girar = nome do @keyframes
+     4s = duração
+     infinite = repete pra sempre
+     linear = velocidade constante */
+
+
