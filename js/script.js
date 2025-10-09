@@ -1,40 +1,40 @@
-// Função para cadastrar usuário
-async function cadastrar() {
-  const nome = document.getElementById('nome').value;
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
+// Carrega as imagens do servidor
+async function carregarImagens() {
+  const galeria = document.getElementById("galeria");
+  galeria.innerHTML = "";
 
-  try {
-    const response = await fetch('http://localhost:3000/register', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, email, senha })
-    });
+  const resposta = await fetch("http://localhost:3000/imagens");
+  const imagens = await resposta.json();
 
-    const data = await response.json();
-    document.getElementById('msg').innerText = data.message || data.error;
-  } catch (err) {
-    document.getElementById('msg').innerText = 'Erro no cadastro';
-  }
+  imagens.forEach(img => {
+    const imgTag = document.createElement("img");
+    imgTag.src = `/uploads/${img.nome_arquivo}`;
+    imgTag.width = 400;
+    imgTag.height = 250;
+    galeria.appendChild(imgTag);
+  });
 }
 
-// Função para login de usuário
-async function login() {
+// Envia o arquivo para o servidor
+document.getElementById("uploadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = new FormData(); // mega variavel para armazenar as coisas
+  formData.append("arquivo", document.getElementById("arquivo").files[0]);
+  
+  const resposta = await fetch("http://localhost:3000/uploads", {
+    method: "POST",
+    body: formData,
+  });
 
-  const email = document.getElementById('email').value;
-  const senha = document.getElementById('senha').value;
+  console.log(resposta);
 
-  try {
-    const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, senha })
-    });
-
-    const data = await response.json();
-    alert(data.message)
-    document.getElementById('msg').innerText = data.message || data.error;  
-  } catch (err) {
-    document.getElementById('msg').innerText = 'Erro no login';
+  if (resposta.ok) {
+    alert("Upload feito com sucesso!");
+    carregarImagens();
+  } else {
+    alert("Erro ao enviar arquivo.");
   }
-}
+});
+
+// Carrega as imagens assim que a página abre
+carregarImagens();

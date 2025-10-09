@@ -4,7 +4,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',     // seu usuário
   password: 'root',     // sua senha
-  database: 'backFront' // nome do banco
+  database: 'upload' // nome do banco
 });
 
 db.connect((err) => {
